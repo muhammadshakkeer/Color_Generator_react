@@ -6,20 +6,20 @@ const SingleColor = ({ rgb, weight, index, hexColor }) => {
   const bcg = rgb.join(",");
   const hex = rgbToHex(...rgb);
   console.log(hex);
-  useEffect(()=> {
-      const timeout = setTimeout (() => {
-        setAlert(false)
-      },3000)
-      return () => clearTimeout(timeout)
-  },[alert])
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAlert(false);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, [alert]);
   return (
     <article
       className={`color ${index > 10 && "color-light"}`}
       style={{ backgroundColor: `rgb(${bcg})` }}
-     onClick={()=> {
-       setAlert(true)
-       navigator.clipboard.writeText(hex)
-     }}
+      onClick={() => {
+        setAlert(true);
+        navigator.clipboard.writeText(hex);
+      }}
     >
       <p className="percent-value">{weight} % </p>
       <p className="color-value">{hex}</p>
